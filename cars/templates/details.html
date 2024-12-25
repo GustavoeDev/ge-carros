@@ -11,12 +11,14 @@
     <p><strong>Placa:</strong>{{ object.plate }}</p>
     <p><strong>Valor:</strong>R$ {{ object.value }}</p>
   </div>
+  {% if user.is_authenticated %}
   <div class="btn">
     <button><a href="{% url 'car_update' object.pk %}">Editar carro</a></button>
     <button class="delete">
       <a href="{% url 'car_delete' object.pk %}">Excluir carro</a>
     </button>
   </div>
+  {% endif %}
 </div>
 
 {% endblock %}

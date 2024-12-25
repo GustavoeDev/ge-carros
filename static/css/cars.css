@@ -1,0 +1,62 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 50px;
+}
+
+.form-container > form {
+  max-width: 400px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.form-container > form > input {
+  flex: 1;
+  border: 0;
+  padding: 1rem;
+  background-color: gainsboro;
+  border-radius: 6px;
+}
+
+.form-container > form > button {
+  border: 0;
+  padding: 1rem;
+  background-color: rgb(29, 141, 247);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.container-car {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 1.6rem;
+}
+
+.card-car {
+  max-width: 395px;
+  height: 220px;
+  width: 100%;
+  background-color: rgb(228, 228, 228);
+  border-radius: 8px;
+  padding: 1rem 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-car > img {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 6px;
+}

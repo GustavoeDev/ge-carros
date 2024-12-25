@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GE Carros</title>
+    <link rel="stylesheet" href="{% static 'css/cars.css' %}" />
+  </head>
+
+  <body>
+    <section class="container">
+      <div class="form-container">
+        <form method="GET" action="{% url 'cars_list' %}">
+          <input type="text" name="search" placeholder="Buscar Carro" />
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+
+      <div class="container-car">
+        {% for car in cars %}
+        <div class="card-car">
+          <img src="{{ car.photo.url }}" alt="" />
+          <h1>{{ car.model }}</h1>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>
+{% endblock %}

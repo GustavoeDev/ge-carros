@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}" />
+{% endblock %} {% block title %} {% endblock %} {% block content %}
+
+<form method="post" action="">
+  {% csrf_token %}
+
+  <h2>Fazer cadastro</h2>
+
+  <div class="form-group">
+    {{ user_form.username.errors }} {{ user_form.username.label_tag }}
+    {{user_form.username }}
+  </div>
+
+  <div class="form-group">
+    {{ user_form.password1.errors }} {{ user_form.password1.label_tag }}
+    {{user_form.password1 }}
+  </div>
+
+  <div class="form-group">
+    {{ user_form.password2.errors }} {{ user_form.password2.label_tag }}
+    {{user_form.password2 }}
+  </div>
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+{% endblock %}

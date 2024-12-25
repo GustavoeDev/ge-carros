@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GE Carros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="container-content">
+        <h1>GE Carros</h1>
+        <nav>
+          {% if user.is_superuser %}
+          <p>Olá, {{ user.username }}</p>
+          <a href="{% url 'new_car' %}">Adicionar novo carro</a>
+          {% endif %} {% if not user.is_authenticated %}
+          <a href="{% url 'login' %}">Login</a>
+          {% endif %}
+
+          <a href="{% url 'cars_list' %}">Lista de Carros</a>
+
+          {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}">Sair</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+    <main>{% block content %} {% endblock %}</main>
+    <footer>
+      <div class="container-content">
+        <p>© 2024 por Gustavo Emanuel. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/delete.css' %}" />
+{% endblock %} {% block content %}
+
+<form method="post" action=".">
+  {% csrf_token %}
+
+  <h2>
+    Deseja realmente excluir o carro {{ object.brand }} - {{ object.model }}?
+  </h2>
+
+  <div class="btn">
+    <button type="submit">Excluir</button>
+    <button><a href="{% url 'car_detail' object.pk %}">Cancelar</a></button>
+  </div>
+</form>
+
+{% endblock %}

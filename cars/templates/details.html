@@ -13,6 +13,9 @@
   </div>
   <div class="btn">
     <button><a href="{% url 'car_update' object.pk %}">Editar carro</a></button>
+    <button class="delete">
+      <a href="{% url 'car_delete' object.pk %}">Excluir carro</a>
+    </button>
   </div>
 </div>
 

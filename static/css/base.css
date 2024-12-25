@@ -9,6 +9,14 @@ body {
   font-size: 1rem;
 }
 
+body,
+button,
+input,
+textarea {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+}
+
 header,
 footer {
   background-color: rgb(29, 141, 247);

@@ -1,6 +1,6 @@
 from cars.models import Car
 from cars.forms import NewCarForm
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import user_passes_test
 from django.utils.decorators import method_decorator
@@ -27,3 +27,7 @@ class NewCarCreateView(CreateView):
     form_class = NewCarForm
     template_name = 'new_car.html'
     success_url = '/cars/'
+
+class CarDetailView(DetailView):
+    model = Car
+    template_name = 'details.html'

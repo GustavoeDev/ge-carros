@@ -19,10 +19,10 @@
 
       <div class="container-car">
         {% for car in cars %}
-        <div class="card-car">
+        <a href="{% url 'car_detail' car.pk %}" class="card-car">
           <img src="{{ car.photo.url }}" alt="" />
           <h1>{{ car.model }}</h1>
-        </div>
+        </a>
         {% endfor %}
       </div>
     </section>

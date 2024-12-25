@@ -1,5 +1,6 @@
 from cars.models import Car
 from cars.forms import NewCarForm
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import user_passes_test
@@ -36,7 +37,9 @@ class CarUpdateView(UpdateView):
     model = Car
     form_class = NewCarForm
     template_name = 'car_update.html'
-    success_url = '/cars/'
+
+    def get_success_url(self):
+        return reverse_lazy('car_detail', kwargs={'pk': self.object.pk})
 
 class CarDeleteView(DeleteView):
     model = Car

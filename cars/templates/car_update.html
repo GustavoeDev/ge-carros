@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/update.css' %}" />
+{% endblock %} {% block content %}
+
+<form method="post" enctype="multipart/form-data" action=".">
+  {% csrf_token %}
+
+  <h2>Atualizar o carro {{ object.model }}</h2>
+
+  <div class="form-group">{{ form.model.label_tag }} {{ form.model }}</div>
+
+  <div class="form-group">{{ form.brand.label_tag }} {{ form.brand }}</div>
+
+  <div class="form-group">
+    {{ form.factory_year.label_tag }} {{ form.factory_year }}
+  </div>
+
+  <div class="form-group">
+    {{ form.model_year.label_tag }} {{ form.model_year }}
+  </div>
+
+  <div class="form-group">{{ form.plate.label_tag }} {{ form.plate }}</div>
+
+  <div class="form-group">{{ form.value.label_tag }} {{ form.value }}</div>
+
+  <div class="form-group">{{ form.photo.label_tag }} {{ form.photo }}</div>
+
+  <div class="btn">
+    <button type="submit">Confirmar alterações</button>
+    <button><a href="{% url 'cars_list' %}">Cancelar</a></button>
+  </div>
+</form>
+
+{% endblock %}

@@ -11,6 +11,9 @@
     <p><strong>Placa:</strong>{{ object.plate }}</p>
     <p><strong>Valor:</strong>R$ {{ object.value }}</p>
   </div>
+  <div class="btn">
+    <button><a href="{% url 'car_update' object.pk %}">Editar carro</a></button>
+  </div>
 </div>
 
 {% endblock %}

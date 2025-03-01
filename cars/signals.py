@@ -1,4 +1,4 @@
-from django.db.models.signals import post_save, post_delete
+from django.db.models.signals import post_save, post_delete, pre_save
 from django.dispatch import receiver
 from django.db.models import Sum
 from .models import Car, CarInventory
@@ -12,6 +12,13 @@ def car_inventory_update():
         cars_count=cars_count,
         cars_value=cars_value
     )
+
+@receiver(pre_save, sender=Car)
+def car_pre_save(sender, instance, **kwargs):
+    model = instance.model
+
+    if not instance.description:
+        instance.description = f'O carro {model} é muito confortável de verdade!' 
 
 @receiver(post_save, sender=Car)
 def car_post_save(sender, instance, **kwargs):

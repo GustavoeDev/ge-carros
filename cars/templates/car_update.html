@@ -25,6 +25,10 @@
 
   <div class="form-group">{{ form.photo.label_tag }} {{ form.photo }}</div>
 
+  <div class="form-group">
+    {{ form.description.label_tag }} {{ form.description }}
+  </div>
+
   <div class="btn">
     <button type="submit">Confirmar alterações</button>
     <button><a href="{% url 'cars_list' %}">Cancelar</a></button>

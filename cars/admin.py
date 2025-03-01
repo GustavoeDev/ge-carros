@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cars.models import Car, Brand
+from cars.models import Car, Brand, CarInventory
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -11,3 +11,4 @@ class CarAdmin(admin.ModelAdmin):
 
 admin.site.register(Brand, BrandAdmin)
 admin.site.register(Car, CarAdmin)
+admin.site.register(CarInventory)
